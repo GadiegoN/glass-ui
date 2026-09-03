@@ -3,7 +3,7 @@
 > **Treating Glass as a Living Digital Material.**  
 > The definitive, physics-driven Glassmorphism design system and component library for React and Next.js.
 
-![Glass UI Banner](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80)
+![Glass UI Showcase](./public/showcase-dock.png)
 
 ---
 

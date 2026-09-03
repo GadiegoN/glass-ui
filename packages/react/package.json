@@ -15,7 +15,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "showcase-dock.png"
   ],
   "scripts": {
     "build": "tsup",
