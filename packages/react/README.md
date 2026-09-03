@@ -3,6 +3,15 @@
 > **Treating Glass as a Living Digital Material.**  
 > The definitive, physics-driven Glassmorphism design system and component library for React and Next.js.
 
+[![NPM Version](https://img.shields.io/npm/v/@gadiegon/glass-ui?color=38bdf8&label=npm%20package)](https://www.npmjs.com/package/@gadiegon/glass-ui)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&logoColor=white)](https://docs-roan-mu-90.vercel.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-GadiegoN%2Fglass--ui-181717?logo=github&logoColor=white)](https://github.com/GadiegoN/glass-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+🌐 **Live Interactive Studio & Docs**: [https://docs-roan-mu-90.vercel.app/](https://docs-roan-mu-90.vercel.app/)  
+📦 **NPM Package**: [https://www.npmjs.com/package/@gadiegon/glass-ui](https://www.npmjs.com/package/@gadiegon/glass-ui)  
+📂 **GitHub Repository**: [https://github.com/GadiegoN/glass-ui](https://github.com/GadiegoN/glass-ui)
+
 ![Glass UI Showcase](./showcase-dock.png)
 
 ---

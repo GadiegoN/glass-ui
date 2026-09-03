@@ -51,7 +51,19 @@ export function Navbar() {
 
       <div className="flex items-center gap-3">
         <a
-          href="https://github.com"
+          href="https://www.npmjs.com/package/@gadiegon/glass-ui"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-block"
+        >
+          <GlassButton size="sm" variant="ghost" className="gap-1.5 font-mono text-xs text-red-300 hover:text-red-200">
+            <span className="font-bold text-red-400">npm</span>
+            <span>v0.1.0</span>
+          </GlassButton>
+        </a>
+
+        <a
+          href="https://github.com/GadiegoN/glass-ui"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden sm:inline-block"

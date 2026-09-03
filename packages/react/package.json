@@ -2,6 +2,14 @@
   "name": "@gadiegon/glass-ui",
   "version": "0.1.0",
   "description": "The definitive, physics-based Glassmorphism UI component library for React and Next.js",
+  "homepage": "https://docs-roan-mu-90.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GadiegoN/glass-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GadiegoN/glass-ui/issues"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
