@@ -13,7 +13,7 @@ Agradecemos o seu interesse em contribuir com o **Glass UI**! Este documento ori
 2. **Instalação**:
    ```bash
    # Clonar o repositório
-   git clone https://github.com/seu-usuario/glass-ui.git
+   git clone https://github.com/GadiegoN/glass-ui.git
    cd glass-ui
 
    # Instalar dependências em todo o monorepo
@@ -80,7 +80,7 @@ git commit -m "fix(slider): resolve thumb offset calculation"
    git checkout -b feature/nome-da-feature
    ```
 2. Faça os commits seguindo a convenção.
-3. Se adicionou ou alterou um componente do pacote `@glass-ui/react`, crie um changeset:
+3. Se adicionou ou alterou um componente do pacote `@gadiegon/glass-ui`, crie um changeset:
    ```bash
    pnpm changeset
    ```
