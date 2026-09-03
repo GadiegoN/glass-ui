@@ -14,7 +14,8 @@
     "./styles.css": "./dist/index.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup",
