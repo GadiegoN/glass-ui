@@ -1,0 +1,52 @@
+{
+  "name": "@glass-ui/react",
+  "version": "0.1.0",
+  "description": "The definitive, physics-based Glassmorphism UI component library for React and Next.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "glassmorphism",
+    "glass",
+    "react",
+    "nextjs",
+    "ui-library",
+    "design-system",
+    "frosted-glass",
+    "components"
+  ],
+  "license": "MIT"
+}
