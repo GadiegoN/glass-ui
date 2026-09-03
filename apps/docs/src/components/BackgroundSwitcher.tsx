@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Glass } from '@glass-ui/react';
+import React, { useState } from 'react';
+import { Glass } from '@gadiegon/glass-ui';
 import { Palette } from 'lucide-react';
 
 export type BackgroundEnv = 'aurora' | 'cyberpunk' | 'obsidian' | 'nebula' | 'crystal-light';

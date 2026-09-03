@@ -8,7 +8,7 @@ import { ShowcaseSection } from '@/components/ShowcaseSection';
 import { ComponentCatalog } from '@/components/ComponentCatalog';
 import { BackgroundSwitcher, BackgroundEnv } from '@/components/BackgroundSwitcher';
 import { Footer } from '@/components/Footer';
-import { GlassProvider } from '@glass-ui/react';
+import { GlassProvider } from '@gadiegon/glass-ui';
 
 export default function HomePage() {
   const [bgEnv, setBgEnv] = useState<BackgroundEnv>('aurora');

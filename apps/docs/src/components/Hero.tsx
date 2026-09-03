@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Glass, GlassButton, GlassBadge } from '@glass-ui/react';
+import { Glass, GlassButton, GlassBadge } from '@gadiegon/glass-ui';
 import { Sparkles, ArrowRight, Copy, Check, ShieldCheck, Cpu, Eye, Zap } from 'lucide-react';
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
 
   const copyCommand = () => {
-    navigator.clipboard.writeText('pnpm add @glass-ui/react');
+    navigator.clipboard.writeText('pnpm add @gadiegon/glass-ui');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -48,7 +48,7 @@ export function Hero() {
               className="flex items-center gap-3 px-4 py-2.5 font-mono text-sm text-white/90 border border-white/20 shadow-xl"
             >
               <span className="text-blue-400 select-none">$</span>
-              <span>pnpm add @glass-ui/react</span>
+              <span>pnpm add @gadiegon/glass-ui</span>
               <button
                 onClick={copyCommand}
                 className="ml-2 text-white/50 hover:text-white transition-colors p-1 rounded hover:bg-white/10"

@@ -16,7 +16,7 @@ import {
   GlassModal,
   GlassAlert,
   GlassDivider,
-} from '@glass-ui/react';
+} from '@gadiegon/glass-ui';
 import {
   Sparkles,
   Layers,

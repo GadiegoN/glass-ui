@@ -14,7 +14,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@glass-ui/react':
+      '@gadiegon/glass-ui':
         specifier: workspace:*
         version: link:../../packages/react
       lucide-react:

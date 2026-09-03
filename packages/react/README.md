@@ -1,4 +1,4 @@
-# Glass UI (@glass-ui/react)
+# Glass UI (@gadiegon/glass-ui)
 
 > **Treating Glass as a Living Digital Material.**  
 > The definitive, physics-driven Glassmorphism design system and component library for React and Next.js.
@@ -24,19 +24,19 @@
 
 ```bash
 # pnpm
-pnpm add @glass-ui/react
+pnpm add @gadiegon/glass-ui
 
 # npm
-npm install @glass-ui/react
+npm install @gadiegon/glass-ui
 
 # yarn
-yarn add @glass-ui/react
+yarn add @gadiegon/glass-ui
 ```
 
 Import core styles in your root `layout.tsx` or `_app.tsx`:
 
 ```tsx
-import '@glass-ui/react/styles.css';
+import '@gadiegon/glass-ui/styles.css';
 ```
 
 ---
@@ -46,7 +46,7 @@ import '@glass-ui/react/styles.css';
 Wrap your application or page in `GlassProvider`:
 
 ```tsx
-import { GlassProvider, GlassCard, GlassButton } from '@glass-ui/react';
+import { GlassProvider, GlassCard, GlassButton } from '@gadiegon/glass-ui';
 
 export default function App() {
   return (
@@ -77,7 +77,7 @@ export default function App() {
 The foundation of every component in the system.
 
 ```tsx
-import { Glass } from '@glass-ui/react';
+import { Glass } from '@gadiegon/glass-ui';
 
 <Glass
   material="crystal"       // 'frosted' | 'crystal' | 'liquid' | 'smoked' | 'milky' | 'iridescent' | 'clear' | 'tinted'
@@ -121,13 +121,16 @@ import { Glass } from '@glass-ui/react';
 
 ---
 
-## 🛠️ Monorepo Scripts
+## 🛠️ Development
 
 ```bash
-# Start Next.js documentation and interactive studio playground
+# Install dependencies
+pnpm install
+
+# Start documentation dev server
 pnpm dev
 
-# Build both @glass-ui/react and apps/docs
+# Build both @gadiegon/glass-ui and apps/docs
 pnpm build
 
 # Build library package only

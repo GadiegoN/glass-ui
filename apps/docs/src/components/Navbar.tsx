@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { GlassNavbar, GlassBadge, GlassButton } from '@glass-ui/react';
+import React, { useState, useEffect } from 'react';
+import { GlassNavbar, GlassBadge, GlassButton } from '@gadiegon/glass-ui';
 import { Sparkles, Layers, Layout, Sliders } from 'lucide-react';
 
 export function Navbar() {

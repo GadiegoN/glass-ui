@@ -21,8 +21,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@glass-ui/react": ["../../packages/react/src/index.ts"],
-      "@glass-ui/react/*": ["../../packages/react/src/*"]
+      "@gadiegon/glass-ui": ["../../packages/react/src/index.ts"],
+      "@gadiegon/glass-ui/*": ["../../packages/react/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

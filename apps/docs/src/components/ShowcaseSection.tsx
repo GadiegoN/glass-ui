@@ -11,7 +11,7 @@ import {
   GlassSwitch,
   GlassSlider,
   GlassDock,
-} from '@glass-ui/react';
+} from '@gadiegon/glass-ui';
 import {
   Play,
   Pause,

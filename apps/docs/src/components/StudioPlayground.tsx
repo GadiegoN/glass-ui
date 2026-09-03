@@ -12,7 +12,7 @@ import {
   GlassDepth,
   GlassBorder,
   GlassNoise,
-} from '@glass-ui/react';
+} from '@gadiegon/glass-ui';
 import {
   Sliders,
   Code2,

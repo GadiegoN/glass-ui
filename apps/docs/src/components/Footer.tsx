@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Glass, GlassBadge } from '@glass-ui/react';
+import { Glass, GlassBadge } from '@gadiegon/glass-ui';
 import { Sparkles, Heart } from 'lucide-react';
 
 export function Footer() {

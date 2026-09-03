@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@glass-ui/react": "workspace:*",
+    "@gadiegon/glass-ui": "workspace:*",
     "lucide-react": "^1.16.0",
     "next": "^15.1.0",
     "react": "^19.0.0",

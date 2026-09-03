@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { GlassProvider } from '@glass-ui/react';
 
 export const metadata: Metadata = {
   title: 'Glass UI — The Definitive Glassmorphism Design System for React',
