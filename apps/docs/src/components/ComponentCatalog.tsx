@@ -734,9 +734,9 @@ export function ComponentCatalog() {
           </GlassCard>
         </div>
 
-        <div className="break-inside-avoid mb-6">
+        <div className="break-inside-avoid mb-6 !overflow-visible relative z-20">
           {/* 14. GlassDatePicker (Seletor Flutuante de Data) */}
-          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4 !overflow-visible">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <h4 className="font-bold text-white text-base">GlassDatePicker</h4>
               <GlassBadge variant="info" size="sm">v0.2.0</GlassBadge>

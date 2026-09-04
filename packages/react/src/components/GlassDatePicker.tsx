@@ -42,7 +42,16 @@ export const GlassDatePicker = forwardRef<HTMLDivElement, GlassDatePickerProps>(
     const selectedDate = value !== undefined ? value : internalDate;
     const [isOpen, setIsOpen] = useState(false);
 
-    const containerRef = useRef<HTMLDivElement>(null);
+    const internalRef = useRef<HTMLDivElement | null>(null);
+
+    const setRefs = (node: HTMLDivElement | null) => {
+      internalRef.current = node;
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
+      }
+    };
 
     // Default formatter: DD/MM/YYYY
     const formatDisplay = (date?: Date) => {
@@ -54,27 +63,30 @@ export const GlassDatePicker = forwardRef<HTMLDivElement, GlassDatePickerProps>(
       return `${day}/${month}/${year}`;
     };
 
-    // Outside click listener
+    // Outside click using standard click event (does NOT block clicks on other elements)
     useEffect(() => {
+      if (!isOpen) return;
+
       const handleOutsideClick = (e: MouseEvent) => {
-        if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        if (internalRef.current && !internalRef.current.contains(e.target as Node)) {
           setIsOpen(false);
         }
       };
 
       const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape' && isOpen) {
+        if (e.key === 'Escape') {
           setIsOpen(false);
         }
       };
 
-      if (isOpen) {
-        document.addEventListener('mousedown', handleOutsideClick);
-        document.addEventListener('keydown', handleKeyDown);
-      }
+      const timer = setTimeout(() => {
+        document.addEventListener('click', handleOutsideClick);
+      }, 0);
+      document.addEventListener('keydown', handleKeyDown);
 
       return () => {
-        document.removeEventListener('mousedown', handleOutsideClick);
+        clearTimeout(timer);
+        document.removeEventListener('click', handleOutsideClick);
         document.removeEventListener('keydown', handleKeyDown);
       };
     }, [isOpen]);
@@ -89,7 +101,7 @@ export const GlassDatePicker = forwardRef<HTMLDivElement, GlassDatePickerProps>(
 
     return (
       <div
-        ref={containerRef}
+        ref={setRefs}
         className={cn('relative inline-block w-full max-w-[280px]', className)}
         {...props}
       >
@@ -143,7 +155,7 @@ export const GlassDatePicker = forwardRef<HTMLDivElement, GlassDatePickerProps>(
           </Glass>
         </button>
 
-        {/* Dropdown Popover */}
+        {/* Floating Calendar Popover */}
         {isOpen && (
           <div className="absolute top-full mt-2 left-0 z-50 animate-in fade-in zoom-in-95 duration-150">
             <GlassCalendar
@@ -153,6 +165,7 @@ export const GlassDatePicker = forwardRef<HTMLDivElement, GlassDatePickerProps>(
               maxDate={maxDate}
               material={material}
               depth={3}
+              className="bg-[#090d16]/95 backdrop-blur-3xl border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_25px_rgba(255,255,255,0.06)]"
             />
           </div>
         )}
