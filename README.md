@@ -127,6 +127,14 @@ import { Glass } from '@gadiegon/glass-ui';
 | `GlassNavbar` | Sticky translucent navigation bar |
 | `GlassAlert` | Luminous status banner with accent glow |
 | `GlassDivider` | Ambient light divider line |
+| `GlassCommand` | Spotlight command palette (⌘K / Ctrl+K) with keyboard navigation and fast search |
+| `GlassToast` | 3D layered imperative toast notifications with optical depth stack and actions |
+| `GlassAccordion` | Collapsible panels with tactile elevation, animated chevron, and elastic physics |
+| `GlassProgress` | Physical liquid progress bar with recessed translucent track and specular highlight |
+| `GlassSkeleton` | Optical glassmorphic placeholder with continuous animated light shimmer |
+| `GlassTable` | Translucent data table with sticky blurred header, row hover lighting, and selection |
+| `GlassCalendar` | VisionOS-inspired spatial calendar with crystal date capsule and ambient indicators |
+| `GlassDatePicker` | Floating translucent date picker with dynamic backdrop blur and quick formatting |
 
 ---
 

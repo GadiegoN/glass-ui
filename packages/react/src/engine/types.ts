@@ -50,6 +50,8 @@ export interface DepthRecipe {
   elevationOpacityMod: number;
 }
 
+export type GlassRounded = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full' | string | number;
+
 export interface GlassProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
   material?: GlassMaterial;
@@ -64,7 +66,7 @@ export interface GlassProps extends React.HTMLAttributes<HTMLDivElement> {
   interactiveLight?: boolean;
   noise?: GlassNoise;
   glow?: boolean | string;
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full' | string | number;
+  rounded?: GlassRounded;
   elevation?: number;
   disabled?: boolean;
   children?: React.ReactNode;

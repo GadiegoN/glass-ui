@@ -8,7 +8,7 @@ import { ShowcaseSection } from '@/components/ShowcaseSection';
 import { ComponentCatalog } from '@/components/ComponentCatalog';
 import { BackgroundSwitcher, BackgroundEnv } from '@/components/BackgroundSwitcher';
 import { Footer } from '@/components/Footer';
-import { GlassProvider } from '@gadiegon/glass-ui';
+import { GlassProvider, GlassToastProvider } from '@gadiegon/glass-ui';
 
 export default function HomePage() {
   const [bgEnv, setBgEnv] = useState<BackgroundEnv>('aurora');
@@ -34,28 +34,30 @@ export default function HomePage() {
 
   return (
     <GlassProvider theme={isLight ? 'light' : 'dark'} key={isLight ? 'light' : 'dark'}>
-      <div
-        className={`min-h-screen transition-colors duration-700 relative ${bgClasses[bgEnv]} ${
-          isLight ? 'theme-light' : ''
-        }`}
-      >
-        {/* Sticky Top Navigation */}
-        <Navbar />
+      <GlassToastProvider position="bottom-right">
+        <div
+          className={`min-h-screen transition-colors duration-700 relative ${bgClasses[bgEnv]} ${
+            isLight ? 'theme-light' : ''
+          }`}
+        >
+          {/* Sticky Top Navigation */}
+          <Navbar />
 
-        {/* Main Content Sections */}
-        <main className="space-y-12">
-          <Hero />
-          <StudioPlayground />
-          <ShowcaseSection />
-          <ComponentCatalog />
-        </main>
+          {/* Main Content Sections */}
+          <main className="space-y-12">
+            <Hero />
+            <StudioPlayground />
+            <ShowcaseSection />
+            <ComponentCatalog />
+          </main>
 
-        {/* Floating Environment Switcher */}
-        <BackgroundSwitcher current={bgEnv} onChange={setBgEnv} />
+          {/* Floating Environment Switcher */}
+          <BackgroundSwitcher current={bgEnv} onChange={setBgEnv} />
 
-        {/* Footer */}
-        <Footer />
-      </div>
+          {/* Footer */}
+          <Footer />
+        </div>
+      </GlassToastProvider>
     </GlassProvider>
   );
 }
