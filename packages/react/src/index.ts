@@ -27,6 +27,8 @@ export * from './components/GlassAccordion';
 export * from './components/GlassSkeleton';
 export * from './components/GlassProgress';
 export * from './components/GlassTable';
+export * from './components/GlassCalendar';
+export * from './components/GlassDatePicker';
 
 // Engine & Tokens
 export * from './engine/types';

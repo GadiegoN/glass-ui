@@ -22,6 +22,8 @@ import {
   GlassProgress,
   GlassSkeleton,
   GlassTable,
+  GlassCalendar,
+  GlassDatePicker,
 } from '@gadiegon/glass-ui';
 import {
   Sparkles,
@@ -52,6 +54,8 @@ export function ComponentCatalog() {
   const [progressVal, setProgressVal] = useState(68);
   const [isSkeletonLoading, setIsSkeletonLoading] = useState(true);
   const [selectedTableRow, setSelectedTableRow] = useState<number | null>(1);
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date(2026, 8, 15));
+  const [pickerDate, setPickerDate] = useState<Date | undefined>(new Date(2026, 8, 20));
 
   // Global hotkey listener: Cmd+K or Ctrl+K
   React.useEffect(() => {
@@ -700,6 +704,59 @@ export function ComponentCatalog() {
               </GlassTable>
               <div className="pt-2 text-[11px] text-white/40 text-center">
                 Clique em uma linha para alternar a seleção ativa.
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+
+        <div className="break-inside-avoid mb-6">
+          {/* 13. GlassCalendar (Calendário Espacial visionOS) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassCalendar</h4>
+              <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Grade de datas com navegação mensal, indicador de hoje e cápsula de seleção com halo vítreo.
+            </p>
+
+            <div className="pt-2 flex justify-center">
+              <GlassCalendar
+                value={selectedDate}
+                onChange={setSelectedDate}
+                material="crystal"
+                depth={2}
+              />
+            </div>
+            <div className="text-center text-xs text-white/60">
+              Data selecionada: <span className="text-blue-400 font-mono font-medium">{selectedDate.toLocaleDateString('pt-BR')}</span>
+            </div>
+          </GlassCard>
+        </div>
+
+        <div className="break-inside-avoid mb-6">
+          {/* 14. GlassDatePicker (Seletor Flutuante de Data) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassDatePicker</h4>
+              <GlassBadge variant="info" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Campo seletor com popover flutuante translúcido, backdrop blur dinâmico e auto-fechamento ao clicar fora.
+            </p>
+
+            <div className="pt-4 space-y-3">
+              <div className="space-y-1.5">
+                <span className="text-xs font-semibold text-white">Data de Lançamento</span>
+                <GlassDatePicker
+                  value={pickerDate}
+                  onChange={setPickerDate}
+                  placeholder="Escolha a data..."
+                  className="w-full"
+                />
+              </div>
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-white/70">
+                Data agendada: <span className="font-mono text-purple-300">{pickerDate ? pickerDate.toLocaleDateString('pt-BR') : 'Nenhuma'}</span>
               </div>
             </div>
           </GlassCard>

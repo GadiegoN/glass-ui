@@ -133,6 +133,8 @@ import { Glass } from '@gadiegon/glass-ui';
 | `GlassProgress` | Physical liquid progress bar with recessed translucent track and specular highlight |
 | `GlassSkeleton` | Optical glassmorphic placeholder with continuous animated light shimmer |
 | `GlassTable` | Translucent data table with sticky blurred header, row hover lighting, and selection |
+| `GlassCalendar` | VisionOS-inspired spatial calendar with crystal date capsule and ambient indicators |
+| `GlassDatePicker` | Floating translucent date picker with dynamic backdrop blur and quick formatting |
 
 ---
 
