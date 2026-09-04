@@ -132,6 +132,7 @@ import { Glass } from '@gadiegon/glass-ui';
 | `GlassAccordion` | Collapsible panels with tactile elevation, animated chevron, and elastic physics |
 | `GlassProgress` | Physical liquid progress bar with recessed translucent track and specular highlight |
 | `GlassSkeleton` | Optical glassmorphic placeholder with continuous animated light shimmer |
+| `GlassTable` | Translucent data table with sticky blurred header, row hover lighting, and selection |
 
 ---
 

@@ -21,6 +21,7 @@ import {
   glassToast,
   GlassProgress,
   GlassSkeleton,
+  GlassTable,
 } from '@gadiegon/glass-ui';
 import {
   Sparkles,
@@ -50,6 +51,7 @@ export function ComponentCatalog() {
   const [btnLoading, setBtnLoading] = useState(false);
   const [progressVal, setProgressVal] = useState(68);
   const [isSkeletonLoading, setIsSkeletonLoading] = useState(true);
+  const [selectedTableRow, setSelectedTableRow] = useState<number | null>(1);
 
   // Global hotkey listener: Cmd+K or Ctrl+K
   React.useEffect(() => {
@@ -644,6 +646,61 @@ export function ComponentCatalog() {
                   </p>
                 </div>
               )}
+            </div>
+          </GlassCard>
+        </div>
+
+        <div className="break-inside-avoid mb-6">
+          {/* 12. GlassTable (Tabela de Dados Vítrea) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassTable</h4>
+              <GlassBadge variant="info" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Tabela de dados translúcida com cabeçalho sticky, hover com iluminação especular e linhas selecionáveis.
+            </p>
+
+            <div className="pt-2">
+              <GlassTable compact hoverable className="w-full">
+                <GlassTable.Header>
+                  <GlassTable.Row>
+                    <GlassTable.Head>Pipeline</GlassTable.Head>
+                    <GlassTable.Head>Camada</GlassTable.Head>
+                    <GlassTable.Head className="text-right">Status</GlassTable.Head>
+                  </GlassTable.Row>
+                </GlassTable.Header>
+                <GlassTable.Body>
+                  {[
+                    { id: 1, name: 'Backdrop Filter', layer: 'GPU Shader', status: 'Ativo', variant: 'success' as const },
+                    { id: 2, name: 'Reflexo Especular', layer: 'Fresnel', status: 'Calibrado', variant: 'info' as const },
+                    { id: 3, name: 'Difração Prismática', layer: 'Óptica', status: 'Canary', variant: 'purple' as const },
+                    { id: 4, name: 'Cache de Ruído', layer: 'Perlin Micro', status: 'Otimizado', variant: 'default' as const },
+                  ].map((row) => (
+                    <GlassTable.Row
+                      key={row.id}
+                      selected={selectedTableRow === row.id}
+                      onClick={() => setSelectedTableRow(row.id === selectedTableRow ? null : row.id)}
+                      className="cursor-pointer"
+                    >
+                      <GlassTable.Cell className="font-medium text-white">
+                        {row.name}
+                      </GlassTable.Cell>
+                      <GlassTable.Cell className="text-white/60">
+                        {row.layer}
+                      </GlassTable.Cell>
+                      <GlassTable.Cell className="text-right">
+                        <GlassBadge variant={row.variant} size="sm">
+                          {row.status}
+                        </GlassBadge>
+                      </GlassTable.Cell>
+                    </GlassTable.Row>
+                  ))}
+                </GlassTable.Body>
+              </GlassTable>
+              <div className="pt-2 text-[11px] text-white/40 text-center">
+                Clique em uma linha para alternar a seleção ativa.
+              </div>
             </div>
           </GlassCard>
         </div>

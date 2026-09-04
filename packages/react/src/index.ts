@@ -26,6 +26,7 @@ export * from './components/GlassToast';
 export * from './components/GlassAccordion';
 export * from './components/GlassSkeleton';
 export * from './components/GlassProgress';
+export * from './components/GlassTable';
 
 // Engine & Tokens
 export * from './engine/types';
