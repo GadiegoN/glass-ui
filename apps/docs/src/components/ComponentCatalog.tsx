@@ -83,558 +83,570 @@ export function ComponentCatalog() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-        {/* 1. GlassButton & GlassIconButton */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassButton & Icons</h4>
-            <GlassBadge variant="purple" size="sm">Buttons</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Responde ao clique com contração física e ao hover com reflexo luminoso.
-          </p>
-
-          <div className="flex flex-wrap gap-2 pt-2">
-            <GlassButton variant="primary" size="sm">Primary</GlassButton>
-            <GlassButton variant="secondary" size="sm">Secondary</GlassButton>
-            <GlassButton variant="danger" size="sm">Danger</GlassButton>
-            <GlassButton variant="ghost" size="sm">Ghost</GlassButton>
-          </div>
-
-          <div className="flex items-center gap-3 pt-2">
-            <GlassButton
-              variant="primary"
-              size="sm"
-              isLoading={btnLoading}
-              onClick={triggerLoading}
-            >
-              {btnLoading ? 'Processando' : 'Testar Loading'}
-            </GlassButton>
-            <GlassIconButton size="md" variant="primary">
-              <Heart className="w-4 h-4" />
-            </GlassIconButton>
-            <GlassIconButton size="md" variant="secondary">
-              <Bell className="w-4 h-4" />
-            </GlassIconButton>
-            <GlassIconButton size="md" variant="ghost">
-              <Settings className="w-4 h-4" />
-            </GlassIconButton>
-          </div>
-        </GlassCard>
-
-        {/* 2. GlassInput & GlassTextarea */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassInput & Forms</h4>
-            <GlassBadge variant="info" size="sm">Formulários</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Campos com contraste óptico aprimorado e halo de foco luminoso.
-          </p>
-
-          <div className="space-y-3 pt-1">
-            <GlassInput
-              placeholder="Pesquisar componentes..."
-              leftIcon={<Search className="w-4 h-4" />}
-            />
-            <GlassInput
-              placeholder="seu.email@exemplo.com"
-              leftIcon={<Mail className="w-4 h-4" />}
-              rightIcon={<Send className="w-4 h-4" />}
-            />
-            <GlassTextarea
-              rows={2}
-              placeholder="Digite sua mensagem em vidro..."
-            />
-          </div>
-        </GlassCard>
-
-        {/* 3. GlassSwitch & GlassSlider */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassSwitch & Slider</h4>
-            <GlassBadge variant="success" size="sm">Controles</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Toggles deslizantes com indicador translúcido e trilhos táteis.
-          </p>
-
-          <div className="space-y-4 pt-2">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-white">Efeito de Blur Ativo</span>
-              <GlassSwitch checked={switchState} onCheckedChange={(v) => setSwitchState(v)} />
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
+        <div className="break-inside-avoid mb-6">
+  {/* 1. GlassButton & GlassIconButton */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassButton & Icons</h4>
+              <GlassBadge variant="purple" size="sm">Buttons</GlassBadge>
             </div>
-
-            <div className="space-y-1.5">
-              <div className="flex justify-between text-xs text-white/70">
-                <span>Intensidade de Refração</span>
-                <span className="font-mono text-blue-400">{sliderVal}%</span>
-              </div>
-              <GlassSlider
-                value={sliderVal}
-                min={0}
-                max={100}
-                onChange={(v) => setSliderVal(v)}
-              />
-            </div>
-          </div>
-        </GlassCard>
-
-        {/* 4. GlassBadge & GlassAvatar */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassBadge & Avatar</h4>
-            <GlassBadge variant="purple" size="sm">Identidade</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Badges de status translúcidos e avatares com borda de vidro polida.
-          </p>
-
-          <div className="flex flex-wrap gap-2 pt-1">
-            <GlassBadge variant="default" size="sm">Default</GlassBadge>
-            <GlassBadge variant="success" size="sm" dot>Online</GlassBadge>
-            <GlassBadge variant="warning" size="sm" dot>Alerta</GlassBadge>
-            <GlassBadge variant="error" size="sm" dot>Crítico</GlassBadge>
-            <GlassBadge variant="purple" size="sm">Spatial</GlassBadge>
-          </div>
-
-          <div className="flex items-center gap-3 pt-2">
-            <GlassAvatar fallback="JD" size="sm" status="online" />
-            <GlassAvatar fallback="AG" size="md" status="busy" />
-            <GlassAvatar fallback="GU" size="lg" status="away" />
-          </div>
-        </GlassCard>
-
-        {/* 5. GlassTabs */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassTabs</h4>
-            <GlassBadge variant="info" size="sm">Navegação</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Abas com cápsula de destaque que desliza sob o item selecionado.
-          </p>
-
-          <div className="pt-1">
-            <GlassTabs defaultValue="design">
-              <GlassTabs.List className="w-full justify-between">
-                <GlassTabs.Trigger value="design">Design</GlassTabs.Trigger>
-                <GlassTabs.Trigger value="physics">Física</GlassTabs.Trigger>
-                <GlassTabs.Trigger value="tokens">Tokens</GlassTabs.Trigger>
-              </GlassTabs.List>
-              <GlassTabs.Content value="design">
-                <p className="text-xs text-white/70 p-2">
-                  Princípio visual com bordas especulares e transmissão luminosa.
-                </p>
-              </GlassTabs.Content>
-              <GlassTabs.Content value="physics">
-                <p className="text-xs text-white/70 p-2">
-                  Cálculo algorítmico de saturação, difusão e elevação por depth.
-                </p>
-              </GlassTabs.Content>
-              <GlassTabs.Content value="tokens">
-                <p className="text-xs text-white/70 p-2">
-                  CSS Variables nativas com suporte a temas e herança direta.
-                </p>
-              </GlassTabs.Content>
-            </GlassTabs>
-          </div>
-        </GlassCard>
-
-        {/* 6. GlassModal & Dialog Trigger */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassModal (Depth 4)</h4>
-            <GlassBadge variant="success" size="sm">Overlays</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Janelas modais em profundidade máxima com backdrop inteligente.
-          </p>
-
-          <div className="pt-4 flex flex-col items-start gap-3">
-            <GlassButton
-              variant="primary"
-              size="md"
-              onClick={() => setIsModalOpen(true)}
-              className="gap-2"
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span>Abrir GlassModal</span>
-            </GlassButton>
-            <span className="text-[11px] text-white/50">Clique para testar o backdrop blur</span>
-          </div>
-
-          {/* The Modal */}
-          <GlassModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-            <GlassModal.Header>
-              <GlassModal.Title>Superfície Glass Depth 4</GlassModal.Title>
-              <GlassModal.Description>
-                Esta janela modal utiliza a física de profundidade mais alta da biblioteca,
-                com iluminação especular e difusão de 36px sobre o backdrop desfocado.
-              </GlassModal.Description>
-            </GlassModal.Header>
-
-            <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-2 my-2">
-              <div className="text-xs font-semibold text-white">Acessibilidade Total</div>
-              <p className="text-xs text-white/70">
-                Pressione <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">ESC</kbd> ou clique fora para fechar suavemente.
-              </p>
-            </div>
-
-            <GlassModal.Footer>
-              <GlassButton variant="ghost" size="sm" onClick={() => setIsModalOpen(false)}>
-                Cancelar
-              </GlassButton>
-              <GlassButton variant="primary" size="sm" onClick={() => setIsModalOpen(false)}>
-                Entendido
-              </GlassButton>
-            </GlassModal.Footer>
-          </GlassModal>
-        </GlassCard>
-
-        {/* 7. GlassCommand (Spotlight Palette ⌘K) */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassCommand (⌘K)</h4>
-            <GlassBadge variant="purple" size="sm">Spotlight</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Command palette com busca em tempo real, navegação por teclado (↑ / ↓ / Enter) e atalho ⌘K.
-          </p>
-
-          <div className="pt-4 flex flex-col items-start gap-3">
-            <GlassButton
-              variant="secondary"
-              size="md"
-              onClick={() => setIsCommandOpen(true)}
-              className="gap-2 w-full justify-between shadow-lg shadow-purple-500/10"
-            >
-              <div className="flex items-center gap-2">
-                <Search className="w-4 h-4 text-purple-400" />
-                <span className="text-sm">Buscar comandos...</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <GlassCommand.Kbd>⌘</GlassCommand.Kbd>
-                <GlassCommand.Kbd>K</GlassCommand.Kbd>
-              </div>
-            </GlassButton>
-            <span className="text-[11px] text-white/50">
-              Pressione <kbd className="px-1 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">Ctrl+K</kbd> ou <kbd className="px-1 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">⌘K</kbd> em qualquer lugar
-            </span>
-          </div>
-
-          {/* The GlassCommand Palette */}
-          <GlassCommand isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)}>
-            <GlassCommand.Input placeholder="O que você deseja fazer ou procurar?" />
-            <GlassCommand.List>
-              <GlassCommand.Empty>Nenhum comando encontrado.</GlassCommand.Empty>
-
-              <GlassCommand.Group heading="Navegação Rápida">
-                <GlassCommand.Item
-                  icon={<Sliders className="w-4 h-4" />}
-                  shortcut="G S"
-                  onSelect={() => {
-                    const el = document.getElementById('studio');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Ir para o Glass Studio Playground
-                </GlassCommand.Item>
-                <GlassCommand.Item
-                  icon={<Layout className="w-4 h-4" />}
-                  shortcut="G W"
-                  onSelect={() => {
-                    const el = document.getElementById('showcases');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Ver Superfícies em Ação (Showcases)
-                </GlassCommand.Item>
-                <GlassCommand.Item
-                  icon={<Layers className="w-4 h-4" />}
-                  shortcut="G C"
-                  onSelect={() => {
-                    const el = document.getElementById('components');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Explorar Catálogo de Componentes
-                </GlassCommand.Item>
-              </GlassCommand.Group>
-
-              <GlassCommand.Group heading="Ações Rápidas">
-                <GlassCommand.Item
-                  icon={<Terminal className="w-4 h-4" />}
-                  shortcut="⌘ C"
-                  onSelect={() => {
-                    navigator.clipboard.writeText('npm install @gadiegon/glass-ui');
-                  }}
-                >
-                  Copiar comando npm install @gadiegon/glass-ui
-                </GlassCommand.Item>
-                <GlassCommand.Item
-                  icon={<Sparkles className="w-4 h-4 text-purple-400" />}
-                  onSelect={() => {
-                    setIsModalOpen(true);
-                  }}
-                >
-                  Abrir Demonstração GlassModal
-                </GlassCommand.Item>
-              </GlassCommand.Group>
-
-              <GlassCommand.Group heading="Links Externos">
-                <GlassCommand.Item
-                  icon={<ExternalLink className="w-4 h-4" />}
-                  shortcut="↗"
-                  onSelect={() => {
-                    window.open('https://github.com/GadiegoN/glass-ui', '_blank');
-                  }}
-                >
-                  Abrir Repositório no GitHub
-                </GlassCommand.Item>
-                <GlassCommand.Item
-                  icon={<ExternalLink className="w-4 h-4" />}
-                  shortcut="↗"
-                  onSelect={() => {
-                    window.open('https://www.npmjs.com/package/@gadiegon/glass-ui', '_blank');
-                  }}
-                >
-                  Ver Pacote no Registro do NPM
-                </GlassCommand.Item>
-              </GlassCommand.Group>
-            </GlassCommand.List>
-          </GlassCommand>
-        </GlassCard>
-
-        {/* 8. GlassToast (Notificações Flutuantes) */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassToast (Notificações)</h4>
-            <GlassBadge variant="success" size="sm">v0.2.0</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Toasts 3D imperativos (<code className="text-purple-300 font-mono">glassToast</code>) empilhados com profundidade óptica, auto-dismiss e suporte a ações customizadas.
-          </p>
-
-          <div className="pt-2 grid grid-cols-2 gap-2">
-            <GlassButton
-              variant="secondary"
-              size="sm"
-              onClick={() => {
-                glassToast.success('Tokens Compilados', {
-                  description: 'Camada de difração aplicada com sucesso.',
-                });
-              }}
-              className="w-full text-xs text-emerald-300 hover:text-emerald-200"
-            >
-              Sucesso
-            </GlassButton>
-
-            <GlassButton
-              variant="secondary"
-              size="sm"
-              onClick={() => {
-                glassToast.info('Dica do Glass UI', {
-                  description: 'Use depth={3} para destacar superfícies ativas.',
-                });
-              }}
-              className="w-full text-xs text-blue-300 hover:text-blue-200"
-            >
-              Informação
-            </GlassButton>
-
-            <GlassButton
-              variant="secondary"
-              size="sm"
-              onClick={() => {
-                glassToast.warning('Contraste Óptico', {
-                  description: 'Verifique legibilidade com fundos ultra-claros.',
-                });
-              }}
-              className="w-full text-xs text-amber-300 hover:text-amber-200"
-            >
-              Atenção
-            </GlassButton>
-
-            <GlassButton
-              variant="secondary"
-              size="sm"
-              onClick={() => {
-                glassToast.error('Falha de Renderização', {
-                  description: 'Hardware acceleration foi temporariamente pausado.',
-                });
-              }}
-              className="w-full text-xs text-rose-300 hover:text-rose-200"
-            >
-              Erro
-            </GlassButton>
-          </div>
-
-          <GlassButton
-            variant="primary"
-            size="sm"
-            onClick={() => {
-              glassToast('Ação Interativa', {
-                description: 'Componente restaurado para o estado inicial.',
-                action: {
-                  label: 'Desfazer',
-                  onClick: () => {
-                    glassToast.info('Desfeito com sucesso!');
-                  },
-                },
-              });
-            }}
-            className="w-full text-xs"
-          >
-            Disparar Toast com Botão de Ação
-          </GlassButton>
-        </GlassCard>
-
-        {/* 9. GlassAccordion (Painéis Expansíveis) */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassAccordion</h4>
-            <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Painéis expansíveis com elevação tátil, física de abertura fluida e chevron animado integrado.
-          </p>
-
-          <div className="pt-2">
-            <GlassAccordion type="single" collapsible defaultValue="optics" className="space-y-2">
-              <GlassAccordion.Item value="optics" depth={1}>
-                <GlassAccordion.Trigger>
-                  Refração e Especularidade
-                </GlassAccordion.Trigger>
-                <GlassAccordion.Content>
-                  Superfícies vítreas reagem a fontes de luz direcionais, gerando bordas com gradiente dinâmico e dispersão de cores prismática.
-                </GlassAccordion.Content>
-              </GlassAccordion.Item>
-
-              <GlassAccordion.Item value="a11y" depth={1}>
-                <GlassAccordion.Trigger>
-                  Acessibilidade WAI-ARIA
-                </GlassAccordion.Trigger>
-                <GlassAccordion.Content>
-                  Controle total via teclado (Enter/Espaço para expandir), suporte semântico nativo a atributos <code className="text-purple-300 font-mono text-[11px]">aria-expanded</code>.
-                </GlassAccordion.Content>
-              </GlassAccordion.Item>
-
-              <GlassAccordion.Item value="multi" depth={1}>
-                <GlassAccordion.Trigger>
-                  Modo Individual ou Múltiplo
-                </GlassAccordion.Trigger>
-                <GlassAccordion.Content>
-                  Configure <code className="text-purple-300 font-mono text-[11px]">type=&quot;multiple&quot;</code> para permitir que vários painéis permaneçam abertos simultaneamente.
-                </GlassAccordion.Content>
-              </GlassAccordion.Item>
-            </GlassAccordion>
-          </div>
-        </GlassCard>
-
-        {/* 10. GlassProgress (Barra de Progresso Líquida) */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassProgress</h4>
-            <GlassBadge variant="info" size="sm">v0.2.0</GlassBadge>
-          </div>
-          <p className="text-xs text-white/60">
-            Trilho translúcido com preenchimento líquido iluminado, reflexo especular superior e suporte a listras animadas ou modo indeterminado.
-          </p>
-
-          <div className="pt-2 space-y-4">
-            <GlassProgress
-              value={progressVal}
-              variant="gradient"
-              size="md"
-              showValue
-              striped
-              label="Transmissão Óptica"
-            />
-
-            <GlassProgress
-              value={48}
-              variant="emerald"
-              size="sm"
-              showValue
-              label="Alocação de Shaders GPU"
-            />
-
-            <GlassProgress
-              indeterminate
-              variant="purple"
-              size="sm"
-              label="Buffer em Segundo Plano"
-            />
-
-            {/* Quick interactive slider to manipulate progress */}
-            <div className="flex items-center gap-2 pt-1">
-              <span className="text-[11px] text-white/50 shrink-0">Ajustar:</span>
-              <GlassSlider
-                value={progressVal}
-                min={0}
-                max={100}
-                step={1}
-                onChange={setProgressVal}
-                tint="cyan"
-              />
-            </div>
-          </div>
-        </GlassCard>
-
-        {/* 11. GlassSkeleton (Placeholders Shimmer) */}
-        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <h4 className="font-bold text-white text-base">GlassSkeleton</h4>
-            <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
-          </div>
-          <div className="flex items-center justify-between">
             <p className="text-xs text-white/60">
-              Varredura contínua de luz sobre superfícies vítreas para estados de carregamento.
+              Responde ao clique com contração física e ao hover com reflexo luminoso.
             </p>
-            <GlassButton
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsSkeletonLoading((prev) => !prev)}
-              className="text-[11px] shrink-0 h-6 px-2 py-0 border border-white/10"
-            >
-              {isSkeletonLoading ? 'Mostrar Conteúdo' : 'Ver Shimmer'}
-            </GlassButton>
-          </div>
 
-          <div className="pt-2">
-            {isSkeletonLoading ? (
-              <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
-                <div className="flex items-center gap-3">
-                  <GlassSkeleton variant="circular" width={40} height={40} />
-                  <div className="space-y-1.5 flex-1">
-                    <GlassSkeleton variant="text" width="65%" className="h-3.5" />
-                    <GlassSkeleton variant="text" width="40%" className="h-2.5 opacity-70" />
-                  </div>
-                </div>
-                <GlassSkeleton variant="rounded" className="h-16 w-full" />
+            <div className="flex flex-wrap gap-2 pt-2">
+              <GlassButton variant="primary" size="sm">Primary</GlassButton>
+              <GlassButton variant="secondary" size="sm">Secondary</GlassButton>
+              <GlassButton variant="danger" size="sm">Danger</GlassButton>
+              <GlassButton variant="ghost" size="sm">Ghost</GlassButton>
+            </div>
+
+            <div className="flex items-center gap-3 pt-2">
+              <GlassButton
+                variant="primary"
+                size="sm"
+                isLoading={btnLoading}
+                onClick={triggerLoading}
+              >
+                {btnLoading ? 'Processando' : 'Testar Loading'}
+              </GlassButton>
+              <GlassIconButton size="md" variant="primary">
+                <Heart className="w-4 h-4" />
+              </GlassIconButton>
+              <GlassIconButton size="md" variant="secondary">
+                <Bell className="w-4 h-4" />
+              </GlassIconButton>
+              <GlassIconButton size="md" variant="ghost">
+                <Settings className="w-4 h-4" />
+              </GlassIconButton>
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 2. GlassInput & GlassTextarea */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassInput & Forms</h4>
+              <GlassBadge variant="info" size="sm">Formulários</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Campos com contraste óptico aprimorado e halo de foco luminoso.
+            </p>
+
+            <div className="space-y-3 pt-1">
+              <GlassInput
+                placeholder="Pesquisar componentes..."
+                leftIcon={<Search className="w-4 h-4" />}
+              />
+              <GlassInput
+                placeholder="seu.email@exemplo.com"
+                leftIcon={<Mail className="w-4 h-4" />}
+                rightIcon={<Send className="w-4 h-4" />}
+              />
+              <GlassTextarea
+                rows={2}
+                placeholder="Digite sua mensagem em vidro..."
+              />
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 3. GlassSwitch & GlassSlider */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassSwitch & Slider</h4>
+              <GlassBadge variant="success" size="sm">Controles</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Toggles deslizantes com indicador translúcido e trilhos táteis.
+            </p>
+
+            <div className="space-y-4 pt-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-white">Efeito de Blur Ativo</span>
+                <GlassSwitch checked={switchState} onCheckedChange={(v) => setSwitchState(v)} />
               </div>
-            ) : (
-              <div className="p-3.5 rounded-xl bg-white/[0.06] border border-white/15 space-y-3 transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <GlassAvatar
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                    alt="Usuário Ativo"
-                    size="md"
-                    status="online"
-                  />
-                  <div>
-                    <div className="text-xs font-semibold text-white">Elena Rostova</div>
-                    <div className="text-[11px] text-white/50">Lead Optic Engineer</div>
-                  </div>
+
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs text-white/70">
+                  <span>Intensidade de Refração</span>
+                  <span className="font-mono text-blue-400">{sliderVal}%</span>
                 </div>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  Superfície vítrea carregada com difração ativada e profundidade espacial calibrada.
+                <GlassSlider
+                  value={sliderVal}
+                  min={0}
+                  max={100}
+                  onChange={(v) => setSliderVal(v)}
+                />
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 4. GlassBadge & GlassAvatar */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassBadge & Avatar</h4>
+              <GlassBadge variant="purple" size="sm">Identidade</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Badges de status translúcidos e avatares com borda de vidro polida.
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              <GlassBadge variant="default" size="sm">Default</GlassBadge>
+              <GlassBadge variant="success" size="sm" dot>Online</GlassBadge>
+              <GlassBadge variant="warning" size="sm" dot>Alerta</GlassBadge>
+              <GlassBadge variant="error" size="sm" dot>Crítico</GlassBadge>
+              <GlassBadge variant="purple" size="sm">Spatial</GlassBadge>
+            </div>
+
+            <div className="flex items-center gap-3 pt-2">
+              <GlassAvatar fallback="JD" size="sm" status="online" />
+              <GlassAvatar fallback="AG" size="md" status="busy" />
+              <GlassAvatar fallback="GU" size="lg" status="away" />
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 5. GlassTabs */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassTabs</h4>
+              <GlassBadge variant="info" size="sm">Navegação</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Abas com cápsula de destaque que desliza sob o item selecionado.
+            </p>
+
+            <div className="pt-1">
+              <GlassTabs defaultValue="design">
+                <GlassTabs.List className="w-full justify-between">
+                  <GlassTabs.Trigger value="design">Design</GlassTabs.Trigger>
+                  <GlassTabs.Trigger value="physics">Física</GlassTabs.Trigger>
+                  <GlassTabs.Trigger value="tokens">Tokens</GlassTabs.Trigger>
+                </GlassTabs.List>
+                <GlassTabs.Content value="design">
+                  <p className="text-xs text-white/70 p-2">
+                    Princípio visual com bordas especulares e transmissão luminosa.
+                  </p>
+                </GlassTabs.Content>
+                <GlassTabs.Content value="physics">
+                  <p className="text-xs text-white/70 p-2">
+                    Cálculo algorítmico de saturação, difusão e elevação por depth.
+                  </p>
+                </GlassTabs.Content>
+                <GlassTabs.Content value="tokens">
+                  <p className="text-xs text-white/70 p-2">
+                    CSS Variables nativas com suporte a temas e herança direta.
+                  </p>
+                </GlassTabs.Content>
+              </GlassTabs>
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 6. GlassModal & Dialog Trigger */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassModal (Depth 4)</h4>
+              <GlassBadge variant="success" size="sm">Overlays</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Janelas modais em profundidade máxima com backdrop inteligente.
+            </p>
+
+            <div className="pt-4 flex flex-col items-start gap-3">
+              <GlassButton
+                variant="primary"
+                size="md"
+                onClick={() => setIsModalOpen(true)}
+                className="gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>Abrir GlassModal</span>
+              </GlassButton>
+              <span className="text-[11px] text-white/50">Clique para testar o backdrop blur</span>
+            </div>
+
+            {/* The Modal */}
+            <GlassModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+              <GlassModal.Header>
+                <GlassModal.Title>Superfície Glass Depth 4</GlassModal.Title>
+                <GlassModal.Description>
+                  Esta janela modal utiliza a física de profundidade mais alta da biblioteca,
+                  com iluminação especular e difusão de 36px sobre o backdrop desfocado.
+                </GlassModal.Description>
+              </GlassModal.Header>
+
+              <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-2 my-2">
+                <div className="text-xs font-semibold text-white">Acessibilidade Total</div>
+                <p className="text-xs text-white/70">
+                  Pressione <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">ESC</kbd> ou clique fora para fechar suavemente.
                 </p>
               </div>
-            )}
-          </div>
-        </GlassCard>
+
+              <GlassModal.Footer>
+                <GlassButton variant="ghost" size="sm" onClick={() => setIsModalOpen(false)}>
+                  Cancelar
+                </GlassButton>
+                <GlassButton variant="primary" size="sm" onClick={() => setIsModalOpen(false)}>
+                  Entendido
+                </GlassButton>
+              </GlassModal.Footer>
+            </GlassModal>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 7. GlassCommand (Spotlight Palette ⌘K) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassCommand (⌘K)</h4>
+              <GlassBadge variant="purple" size="sm">Spotlight</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Command palette com busca em tempo real, navegação por teclado (↑ / ↓ / Enter) e atalho ⌘K.
+            </p>
+
+            <div className="pt-4 flex flex-col items-start gap-3">
+              <GlassButton
+                variant="secondary"
+                size="md"
+                onClick={() => setIsCommandOpen(true)}
+                className="gap-2 w-full justify-between shadow-lg shadow-purple-500/10"
+              >
+                <div className="flex items-center gap-2">
+                  <Search className="w-4 h-4 text-purple-400" />
+                  <span className="text-sm">Buscar comandos...</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <GlassCommand.Kbd>⌘</GlassCommand.Kbd>
+                  <GlassCommand.Kbd>K</GlassCommand.Kbd>
+                </div>
+              </GlassButton>
+              <span className="text-[11px] text-white/50">
+                Pressione <kbd className="px-1 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">Ctrl+K</kbd> ou <kbd className="px-1 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">⌘K</kbd> em qualquer lugar
+              </span>
+            </div>
+
+            {/* The GlassCommand Palette */}
+            <GlassCommand isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)}>
+              <GlassCommand.Input placeholder="O que você deseja fazer ou procurar?" />
+              <GlassCommand.List>
+                <GlassCommand.Empty>Nenhum comando encontrado.</GlassCommand.Empty>
+
+                <GlassCommand.Group heading="Navegação Rápida">
+                  <GlassCommand.Item
+                    icon={<Sliders className="w-4 h-4" />}
+                    shortcut="G S"
+                    onSelect={() => {
+                      const el = document.getElementById('studio');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    Ir para o Glass Studio Playground
+                  </GlassCommand.Item>
+                  <GlassCommand.Item
+                    icon={<Layout className="w-4 h-4" />}
+                    shortcut="G W"
+                    onSelect={() => {
+                      const el = document.getElementById('showcases');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    Ver Superfícies em Ação (Showcases)
+                  </GlassCommand.Item>
+                  <GlassCommand.Item
+                    icon={<Layers className="w-4 h-4" />}
+                    shortcut="G C"
+                    onSelect={() => {
+                      const el = document.getElementById('components');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    Explorar Catálogo de Componentes
+                  </GlassCommand.Item>
+                </GlassCommand.Group>
+
+                <GlassCommand.Group heading="Ações Rápidas">
+                  <GlassCommand.Item
+                    icon={<Terminal className="w-4 h-4" />}
+                    shortcut="⌘ C"
+                    onSelect={() => {
+                      navigator.clipboard.writeText('npm install @gadiegon/glass-ui');
+                    }}
+                  >
+                    Copiar comando npm install @gadiegon/glass-ui
+                  </GlassCommand.Item>
+                  <GlassCommand.Item
+                    icon={<Sparkles className="w-4 h-4 text-purple-400" />}
+                    onSelect={() => {
+                      setIsModalOpen(true);
+                    }}
+                  >
+                    Abrir Demonstração GlassModal
+                  </GlassCommand.Item>
+                </GlassCommand.Group>
+
+                <GlassCommand.Group heading="Links Externos">
+                  <GlassCommand.Item
+                    icon={<ExternalLink className="w-4 h-4" />}
+                    shortcut="↗"
+                    onSelect={() => {
+                      window.open('https://github.com/GadiegoN/glass-ui', '_blank');
+                    }}
+                  >
+                    Abrir Repositório no GitHub
+                  </GlassCommand.Item>
+                  <GlassCommand.Item
+                    icon={<ExternalLink className="w-4 h-4" />}
+                    shortcut="↗"
+                    onSelect={() => {
+                      window.open('https://www.npmjs.com/package/@gadiegon/glass-ui', '_blank');
+                    }}
+                  >
+                    Ver Pacote no Registro do NPM
+                  </GlassCommand.Item>
+                </GlassCommand.Group>
+              </GlassCommand.List>
+            </GlassCommand>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 8. GlassToast (Notificações Flutuantes) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassToast (Notificações)</h4>
+              <GlassBadge variant="success" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Toasts 3D imperativos (<code className="text-purple-300 font-mono">glassToast</code>) empilhados com profundidade óptica, auto-dismiss e suporte a ações customizadas.
+            </p>
+
+            <div className="pt-2 grid grid-cols-2 gap-2">
+              <GlassButton
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  glassToast.success('Tokens Compilados', {
+                    description: 'Camada de difração aplicada com sucesso.',
+                  });
+                }}
+                className="w-full text-xs text-emerald-300 hover:text-emerald-200"
+              >
+                Sucesso
+              </GlassButton>
+
+              <GlassButton
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  glassToast.info('Dica do Glass UI', {
+                    description: 'Use depth={3} para destacar superfícies ativas.',
+                  });
+                }}
+                className="w-full text-xs text-blue-300 hover:text-blue-200"
+              >
+                Informação
+              </GlassButton>
+
+              <GlassButton
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  glassToast.warning('Contraste Óptico', {
+                    description: 'Verifique legibilidade com fundos ultra-claros.',
+                  });
+                }}
+                className="w-full text-xs text-amber-300 hover:text-amber-200"
+              >
+                Atenção
+              </GlassButton>
+
+              <GlassButton
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  glassToast.error('Falha de Renderização', {
+                    description: 'Hardware acceleration foi temporariamente pausado.',
+                  });
+                }}
+                className="w-full text-xs text-rose-300 hover:text-rose-200"
+              >
+                Erro
+              </GlassButton>
+            </div>
+
+            <GlassButton
+              variant="primary"
+              size="sm"
+              onClick={() => {
+                glassToast('Ação Interativa', {
+                  description: 'Componente restaurado para o estado inicial.',
+                  action: {
+                    label: 'Desfazer',
+                    onClick: () => {
+                      glassToast.info('Desfeito com sucesso!');
+                    },
+                  },
+                });
+              }}
+              className="w-full text-xs"
+            >
+              Disparar Toast com Botão de Ação
+            </GlassButton>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 9. GlassAccordion (Painéis Expansíveis) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassAccordion</h4>
+              <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Painéis expansíveis com elevação tátil, física de abertura fluida e chevron animado integrado.
+            </p>
+
+            <div className="pt-2">
+              <GlassAccordion type="single" collapsible defaultValue="optics" className="space-y-2">
+                <GlassAccordion.Item value="optics" depth={1}>
+                  <GlassAccordion.Trigger>
+                    Refração e Especularidade
+                  </GlassAccordion.Trigger>
+                  <GlassAccordion.Content>
+                    Superfícies vítreas reagem a fontes de luz direcionais, gerando bordas com gradiente dinâmico e dispersão de cores prismática.
+                  </GlassAccordion.Content>
+                </GlassAccordion.Item>
+
+                <GlassAccordion.Item value="a11y" depth={1}>
+                  <GlassAccordion.Trigger>
+                    Acessibilidade WAI-ARIA
+                  </GlassAccordion.Trigger>
+                  <GlassAccordion.Content>
+                    Controle total via teclado (Enter/Espaço para expandir), suporte semântico nativo a atributos <code className="text-purple-300 font-mono text-[11px]">aria-expanded</code>.
+                  </GlassAccordion.Content>
+                </GlassAccordion.Item>
+
+                <GlassAccordion.Item value="multi" depth={1}>
+                  <GlassAccordion.Trigger>
+                    Modo Individual ou Múltiplo
+                  </GlassAccordion.Trigger>
+                  <GlassAccordion.Content>
+                    Configure <code className="text-purple-300 font-mono text-[11px]">type=&quot;multiple&quot;</code> para permitir que vários painéis permaneçam abertos simultaneamente.
+                  </GlassAccordion.Content>
+                </GlassAccordion.Item>
+              </GlassAccordion>
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 10. GlassProgress (Barra de Progresso Líquida) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassProgress</h4>
+              <GlassBadge variant="info" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <p className="text-xs text-white/60">
+              Trilho translúcido com preenchimento líquido iluminado, reflexo especular superior e suporte a listras animadas ou modo indeterminado.
+            </p>
+
+            <div className="pt-2 space-y-4">
+              <GlassProgress
+                value={progressVal}
+                variant="gradient"
+                size="md"
+                showValue
+                striped
+                label="Transmissão Óptica"
+              />
+
+              <GlassProgress
+                value={48}
+                variant="emerald"
+                size="sm"
+                showValue
+                label="Alocação de Shaders GPU"
+              />
+
+              <GlassProgress
+                indeterminate
+                variant="purple"
+                size="sm"
+                label="Buffer em Segundo Plano"
+              />
+
+              {/* Quick interactive slider to manipulate progress */}
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-[11px] text-white/50 shrink-0">Ajustar:</span>
+                <GlassSlider
+                  value={progressVal}
+                  min={0}
+                  max={100}
+                  step={1}
+                  onChange={setProgressVal}
+                  tint="cyan"
+                />
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+        <div className="break-inside-avoid mb-6">
+  {/* 11. GlassSkeleton (Placeholders Shimmer) */}
+          <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h4 className="font-bold text-white text-base">GlassSkeleton</h4>
+              <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
+            </div>
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-white/60">
+                Varredura contínua de luz sobre superfícies vítreas para estados de carregamento.
+              </p>
+              <GlassButton
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsSkeletonLoading((prev) => !prev)}
+                className="text-[11px] shrink-0 h-6 px-2 py-0 border border-white/10"
+              >
+                {isSkeletonLoading ? 'Mostrar Conteúdo' : 'Ver Shimmer'}
+              </GlassButton>
+            </div>
+
+            <div className="pt-2">
+              {isSkeletonLoading ? (
+                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <GlassSkeleton variant="circular" width={40} height={40} />
+                    <div className="space-y-1.5 flex-1">
+                      <GlassSkeleton variant="text" width="65%" className="h-3.5" />
+                      <GlassSkeleton variant="text" width="40%" className="h-2.5 opacity-70" />
+                    </div>
+                  </div>
+                  <GlassSkeleton variant="rounded" className="h-16 w-full" />
+                </div>
+              ) : (
+                <div className="p-3.5 rounded-xl bg-white/[0.06] border border-white/15 space-y-3 transition-all duration-300">
+                  <div className="flex items-center gap-3">
+                    <GlassAvatar
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                      alt="Usuário Ativo"
+                      size="md"
+                      status="online"
+                    />
+                    <div>
+                      <div className="text-xs font-semibold text-white">Elena Rostova</div>
+                      <div className="text-[11px] text-white/50">Lead Optic Engineer</div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/80 leading-relaxed">
+                    Superfície vítrea carregada com difração ativada e profundidade espacial calibrada.
+                  </p>
+                </div>
+              )}
+            </div>
+          </GlassCard>
+        </div>
       </div>
 
       {/* Glass Alerts Section */}
