@@ -40,43 +40,43 @@ export const GlassProgress = forwardRef<HTMLDivElement, GlassProgressProps>(
     const percentage = Math.min(Math.max((safeValue / safeMax) * 100, 0), 100);
 
     const sizeTrackClasses = {
-      sm: 'h-1.5',
-      md: 'h-2.5',
-      lg: 'h-4',
+      sm: 'h-2',
+      md: 'h-3.5',
+      lg: 'h-5',
     };
 
     const variantGradients: Record<string, { bar: string; glow: string }> = {
       default: {
-        bar: 'bg-gradient-to-r from-blue-500/80 to-purple-500/80',
-        glow: 'shadow-[0_0_12px_rgba(147,51,234,0.35)]',
+        bar: 'bg-gradient-to-r from-blue-500 to-indigo-500',
+        glow: 'shadow-[0_0_12px_rgba(99,102,241,0.5)]',
       },
       blue: {
         bar: 'bg-gradient-to-r from-sky-400 to-blue-600',
-        glow: 'shadow-[0_0_12px_rgba(59,130,246,0.4)]',
+        glow: 'shadow-[0_0_12px_rgba(59,130,246,0.5)]',
       },
       purple: {
         bar: 'bg-gradient-to-r from-purple-400 to-indigo-600',
-        glow: 'shadow-[0_0_12px_rgba(168,85,247,0.4)]',
+        glow: 'shadow-[0_0_12px_rgba(168,85,247,0.5)]',
       },
       emerald: {
-        bar: 'bg-gradient-to-r from-emerald-400 to-teal-500',
-        glow: 'shadow-[0_0_12px_rgba(16,185,129,0.4)]',
+        bar: 'bg-gradient-to-r from-emerald-400 to-teal-400',
+        glow: 'shadow-[0_0_12px_rgba(16,185,129,0.5)]',
       },
       cyan: {
         bar: 'bg-gradient-to-r from-cyan-400 to-blue-500',
-        glow: 'shadow-[0_0_12px_rgba(6,182,212,0.4)]',
+        glow: 'shadow-[0_0_12px_rgba(6,182,212,0.5)]',
       },
       amber: {
         bar: 'bg-gradient-to-r from-amber-400 to-orange-500',
-        glow: 'shadow-[0_0_12px_rgba(245,158,11,0.4)]',
+        glow: 'shadow-[0_0_12px_rgba(245,158,11,0.5)]',
       },
       rose: {
         bar: 'bg-gradient-to-r from-rose-400 to-pink-600',
-        glow: 'shadow-[0_0_12px_rgba(244,63,94,0.4)]',
+        glow: 'shadow-[0_0_12px_rgba(244,63,94,0.5)]',
       },
       gradient: {
-        bar: 'bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500',
-        glow: 'shadow-[0_0_16px_rgba(236,72,153,0.45)]',
+        bar: 'bg-gradient-to-r from-cyan-400 via-indigo-500 to-pink-500',
+        glow: 'shadow-[0_0_16px_rgba(236,72,153,0.5)]',
       },
     };
 
@@ -103,7 +103,7 @@ export const GlassProgress = forwardRef<HTMLDivElement, GlassProgressProps>(
           rounded="full"
           opacity={0.16}
           className={cn(
-            'relative w-full overflow-hidden border border-white/10 bg-white/[0.04] p-0.5 shadow-inner',
+            'relative w-full overflow-hidden border border-white/10 bg-white/[0.04] shadow-inner',
             sizeTrackClasses[size]
           )}
         >
