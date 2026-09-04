@@ -19,6 +19,8 @@ import {
   GlassCommand,
   GlassAccordion,
   glassToast,
+  GlassProgress,
+  GlassSkeleton,
 } from '@gadiegon/glass-ui';
 import {
   Sparkles,
@@ -46,6 +48,8 @@ export function ComponentCatalog() {
   const [switchState, setSwitchState] = useState(true);
   const [sliderVal, setSliderVal] = useState(60);
   const [btnLoading, setBtnLoading] = useState(false);
+  const [progressVal, setProgressVal] = useState(68);
+  const [isSkeletonLoading, setIsSkeletonLoading] = useState(true);
 
   // Global hotkey listener: Cmd+K or Ctrl+K
   React.useEffect(() => {
@@ -525,6 +529,110 @@ export function ComponentCatalog() {
                 </GlassAccordion.Content>
               </GlassAccordion.Item>
             </GlassAccordion>
+          </div>
+        </GlassCard>
+
+        {/* 10. GlassProgress (Barra de Progresso Líquida) */}
+        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h4 className="font-bold text-white text-base">GlassProgress</h4>
+            <GlassBadge variant="info" size="sm">v0.2.0</GlassBadge>
+          </div>
+          <p className="text-xs text-white/60">
+            Trilho translúcido com preenchimento líquido iluminado, reflexo especular superior e suporte a listras animadas ou modo indeterminado.
+          </p>
+
+          <div className="pt-2 space-y-4">
+            <GlassProgress
+              value={progressVal}
+              variant="gradient"
+              size="md"
+              showValue
+              striped
+              label="Transmissão Óptica"
+            />
+
+            <GlassProgress
+              value={48}
+              variant="emerald"
+              size="sm"
+              showValue
+              label="Alocação de Shaders GPU"
+            />
+
+            <GlassProgress
+              indeterminate
+              variant="purple"
+              size="sm"
+              label="Buffer em Segundo Plano"
+            />
+
+            {/* Quick interactive slider to manipulate progress */}
+            <div className="flex items-center gap-2 pt-1">
+              <span className="text-[11px] text-white/50 shrink-0">Ajustar:</span>
+              <GlassSlider
+                value={progressVal}
+                min={0}
+                max={100}
+                step={1}
+                onChange={setProgressVal}
+                tint="cyan"
+              />
+            </div>
+          </div>
+        </GlassCard>
+
+        {/* 11. GlassSkeleton (Placeholders Shimmer) */}
+        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h4 className="font-bold text-white text-base">GlassSkeleton</h4>
+            <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
+          </div>
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-white/60">
+              Varredura contínua de luz sobre superfícies vítreas para estados de carregamento.
+            </p>
+            <GlassButton
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsSkeletonLoading((prev) => !prev)}
+              className="text-[11px] shrink-0 h-6 px-2 py-0 border border-white/10"
+            >
+              {isSkeletonLoading ? 'Mostrar Conteúdo' : 'Ver Shimmer'}
+            </GlassButton>
+          </div>
+
+          <div className="pt-2">
+            {isSkeletonLoading ? (
+              <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+                <div className="flex items-center gap-3">
+                  <GlassSkeleton variant="circular" width={40} height={40} />
+                  <div className="space-y-1.5 flex-1">
+                    <GlassSkeleton variant="text" width="65%" className="h-3.5" />
+                    <GlassSkeleton variant="text" width="40%" className="h-2.5 opacity-70" />
+                  </div>
+                </div>
+                <GlassSkeleton variant="rounded" className="h-16 w-full" />
+              </div>
+            ) : (
+              <div className="p-3.5 rounded-xl bg-white/[0.06] border border-white/15 space-y-3 transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <GlassAvatar
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                    alt="Usuário Ativo"
+                    size="md"
+                    status="online"
+                  />
+                  <div>
+                    <div className="text-xs font-semibold text-white">Elena Rostova</div>
+                    <div className="text-[11px] text-white/50">Lead Optic Engineer</div>
+                  </div>
+                </div>
+                <p className="text-xs text-white/80 leading-relaxed">
+                  Superfície vítrea carregada com difração ativada e profundidade espacial calibrada.
+                </p>
+              </div>
+            )}
           </div>
         </GlassCard>
       </div>

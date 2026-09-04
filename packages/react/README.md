@@ -130,6 +130,8 @@ import { Glass } from '@gadiegon/glass-ui';
 | `GlassCommand` | Spotlight command palette (⌘K / Ctrl+K) with keyboard navigation and fast search |
 | `GlassToast` | 3D layered imperative toast notifications with optical depth stack and actions |
 | `GlassAccordion` | Collapsible panels with tactile elevation, animated chevron, and elastic physics |
+| `GlassProgress` | Physical liquid progress bar with recessed translucent track and specular highlight |
+| `GlassSkeleton` | Optical glassmorphic placeholder with continuous animated light shimmer |
 
 ---
 
