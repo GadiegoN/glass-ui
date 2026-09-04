@@ -17,6 +17,8 @@ import {
   GlassAlert,
   GlassDivider,
   GlassCommand,
+  GlassAccordion,
+  glassToast,
 } from '@gadiegon/glass-ui';
 import {
   Sparkles,
@@ -398,6 +400,132 @@ export function ComponentCatalog() {
               </GlassCommand.Group>
             </GlassCommand.List>
           </GlassCommand>
+        </GlassCard>
+
+        {/* 8. GlassToast (Notificações Flutuantes) */}
+        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h4 className="font-bold text-white text-base">GlassToast (Notificações)</h4>
+            <GlassBadge variant="success" size="sm">v0.2.0</GlassBadge>
+          </div>
+          <p className="text-xs text-white/60">
+            Toasts 3D imperativos (<code className="text-purple-300 font-mono">glassToast</code>) empilhados com profundidade óptica, auto-dismiss e suporte a ações customizadas.
+          </p>
+
+          <div className="pt-2 grid grid-cols-2 gap-2">
+            <GlassButton
+              variant="secondary"
+              size="sm"
+              onClick={() => {
+                glassToast.success('Tokens Compilados', {
+                  description: 'Camada de difração aplicada com sucesso.',
+                });
+              }}
+              className="w-full text-xs text-emerald-300 hover:text-emerald-200"
+            >
+              Sucesso
+            </GlassButton>
+
+            <GlassButton
+              variant="secondary"
+              size="sm"
+              onClick={() => {
+                glassToast.info('Dica do Glass UI', {
+                  description: 'Use depth={3} para destacar superfícies ativas.',
+                });
+              }}
+              className="w-full text-xs text-blue-300 hover:text-blue-200"
+            >
+              Informação
+            </GlassButton>
+
+            <GlassButton
+              variant="secondary"
+              size="sm"
+              onClick={() => {
+                glassToast.warning('Contraste Óptico', {
+                  description: 'Verifique legibilidade com fundos ultra-claros.',
+                });
+              }}
+              className="w-full text-xs text-amber-300 hover:text-amber-200"
+            >
+              Atenção
+            </GlassButton>
+
+            <GlassButton
+              variant="secondary"
+              size="sm"
+              onClick={() => {
+                glassToast.error('Falha de Renderização', {
+                  description: 'Hardware acceleration foi temporariamente pausado.',
+                });
+              }}
+              className="w-full text-xs text-rose-300 hover:text-rose-200"
+            >
+              Erro
+            </GlassButton>
+          </div>
+
+          <GlassButton
+            variant="primary"
+            size="sm"
+            onClick={() => {
+              glassToast('Ação Interativa', {
+                description: 'Componente restaurado para o estado inicial.',
+                action: {
+                  label: 'Desfazer',
+                  onClick: () => {
+                    glassToast.info('Desfeito com sucesso!');
+                  },
+                },
+              });
+            }}
+            className="w-full text-xs"
+          >
+            Disparar Toast com Botão de Ação
+          </GlassButton>
+        </GlassCard>
+
+        {/* 9. GlassAccordion (Painéis Expansíveis) */}
+        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h4 className="font-bold text-white text-base">GlassAccordion</h4>
+            <GlassBadge variant="purple" size="sm">v0.2.0</GlassBadge>
+          </div>
+          <p className="text-xs text-white/60">
+            Painéis expansíveis com elevação tátil, física de abertura fluida e chevron animado integrado.
+          </p>
+
+          <div className="pt-2">
+            <GlassAccordion type="single" collapsible defaultValue="optics" className="space-y-2">
+              <GlassAccordion.Item value="optics" depth={1}>
+                <GlassAccordion.Trigger>
+                  Refração e Especularidade
+                </GlassAccordion.Trigger>
+                <GlassAccordion.Content>
+                  Superfícies vítreas reagem a fontes de luz direcionais, gerando bordas com gradiente dinâmico e dispersão de cores prismática.
+                </GlassAccordion.Content>
+              </GlassAccordion.Item>
+
+              <GlassAccordion.Item value="a11y" depth={1}>
+                <GlassAccordion.Trigger>
+                  Acessibilidade WAI-ARIA
+                </GlassAccordion.Trigger>
+                <GlassAccordion.Content>
+                  Controle total via teclado (Enter/Espaço para expandir), suporte semântico nativo a atributos <code className="text-purple-300 font-mono text-[11px]">aria-expanded</code>.
+                </GlassAccordion.Content>
+              </GlassAccordion.Item>
+
+              <GlassAccordion.Item value="multi" depth={1}>
+                <GlassAccordion.Trigger>
+                  Modo Individual ou Múltiplo
+                </GlassAccordion.Trigger>
+                <GlassAccordion.Content>
+                  Configure <code className="text-purple-300 font-mono text-[11px]">type=&quot;multiple&quot;</code> para permitir que vários painéis permaneçam abertos simultaneamente.
+                </GlassAccordion.Content>
+              </GlassAccordion.Item>
+            </GlassAccordion>
+          </div>
         </GlassCard>
       </div>
 

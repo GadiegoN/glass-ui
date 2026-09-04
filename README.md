@@ -128,6 +128,8 @@ import { Glass } from '@gadiegon/glass-ui';
 | `GlassAlert` | Luminous status banner with accent glow |
 | `GlassDivider` | Ambient light divider line |
 | `GlassCommand` | Spotlight command palette (⌘K / Ctrl+K) with keyboard navigation and fast search |
+| `GlassToast` | 3D layered imperative toast notifications with optical depth stack and actions |
+| `GlassAccordion` | Collapsible panels with tactile elevation, animated chevron, and elastic physics |
 
 ---
 

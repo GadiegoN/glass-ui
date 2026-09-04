@@ -22,6 +22,8 @@ export * from './components/GlassNavbar';
 export * from './components/GlassAlert';
 export * from './components/GlassDivider';
 export * from './components/GlassCommand';
+export * from './components/GlassToast';
+export * from './components/GlassAccordion';
 
 // Engine & Tokens
 export * from './engine/types';
