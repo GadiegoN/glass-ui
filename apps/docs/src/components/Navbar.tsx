@@ -8,6 +8,7 @@ import {
   GlassIconButton,
   Glass,
   GlassDivider,
+} from '@gadiegon/glass-ui';
 import { Sparkles, Layers, Layout, Sliders, Menu, X } from 'lucide-react';
 import pkg from '../../../../packages/react/package.json';
 
