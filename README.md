@@ -127,6 +127,7 @@ import { Glass } from '@gadiegon/glass-ui';
 | `GlassNavbar` | Sticky translucent navigation bar |
 | `GlassAlert` | Luminous status banner with accent glow |
 | `GlassDivider` | Ambient light divider line |
+| `GlassCommand` | Spotlight command palette (⌘K / Ctrl+K) with keyboard navigation and fast search |
 
 ---
 

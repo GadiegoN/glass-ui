@@ -16,6 +16,7 @@ import {
   GlassModal,
   GlassAlert,
   GlassDivider,
+  GlassCommand,
 } from '@gadiegon/glass-ui';
 import {
   Sparkles,
@@ -31,13 +32,30 @@ import {
   AlertTriangle,
   AlertOctagon,
   ExternalLink,
+  Command,
+  Sliders,
+  Layout,
+  Terminal,
 } from 'lucide-react';
 
 export function ComponentCatalog() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [switchState, setSwitchState] = useState(true);
   const [sliderVal, setSliderVal] = useState(60);
   const [btnLoading, setBtnLoading] = useState(false);
+
+  // Global hotkey listener: Cmd+K or Ctrl+K
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const triggerLoading = () => {
     setBtnLoading(true);
@@ -266,6 +284,120 @@ export function ComponentCatalog() {
               </GlassButton>
             </GlassModal.Footer>
           </GlassModal>
+        </GlassCard>
+
+        {/* 7. GlassCommand (Spotlight Palette ⌘K) */}
+        <GlassCard depth={1} material="crystal" className="p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h4 className="font-bold text-white text-base">GlassCommand (⌘K)</h4>
+            <GlassBadge variant="purple" size="sm">Spotlight</GlassBadge>
+          </div>
+          <p className="text-xs text-white/60">
+            Command palette com busca em tempo real, navegação por teclado (↑ / ↓ / Enter) e atalho ⌘K.
+          </p>
+
+          <div className="pt-4 flex flex-col items-start gap-3">
+            <GlassButton
+              variant="secondary"
+              size="md"
+              onClick={() => setIsCommandOpen(true)}
+              className="gap-2 w-full justify-between shadow-lg shadow-purple-500/10"
+            >
+              <div className="flex items-center gap-2">
+                <Search className="w-4 h-4 text-purple-400" />
+                <span className="text-sm">Buscar comandos...</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <GlassCommand.Kbd>⌘</GlassCommand.Kbd>
+                <GlassCommand.Kbd>K</GlassCommand.Kbd>
+              </div>
+            </GlassButton>
+            <span className="text-[11px] text-white/50">
+              Pressione <kbd className="px-1 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">Ctrl+K</kbd> ou <kbd className="px-1 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">⌘K</kbd> em qualquer lugar
+            </span>
+          </div>
+
+          {/* The GlassCommand Palette */}
+          <GlassCommand isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)}>
+            <GlassCommand.Input placeholder="O que você deseja fazer ou procurar?" />
+            <GlassCommand.List>
+              <GlassCommand.Empty>Nenhum comando encontrado.</GlassCommand.Empty>
+
+              <GlassCommand.Group heading="Navegação Rápida">
+                <GlassCommand.Item
+                  icon={<Sliders className="w-4 h-4" />}
+                  shortcut="G S"
+                  onSelect={() => {
+                    const el = document.getElementById('studio');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Ir para o Glass Studio Playground
+                </GlassCommand.Item>
+                <GlassCommand.Item
+                  icon={<Layout className="w-4 h-4" />}
+                  shortcut="G W"
+                  onSelect={() => {
+                    const el = document.getElementById('showcases');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Ver Superfícies em Ação (Showcases)
+                </GlassCommand.Item>
+                <GlassCommand.Item
+                  icon={<Layers className="w-4 h-4" />}
+                  shortcut="G C"
+                  onSelect={() => {
+                    const el = document.getElementById('components');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Explorar Catálogo de Componentes
+                </GlassCommand.Item>
+              </GlassCommand.Group>
+
+              <GlassCommand.Group heading="Ações Rápidas">
+                <GlassCommand.Item
+                  icon={<Terminal className="w-4 h-4" />}
+                  shortcut="⌘ C"
+                  onSelect={() => {
+                    navigator.clipboard.writeText('npm install @gadiegon/glass-ui');
+                  }}
+                >
+                  Copiar comando npm install @gadiegon/glass-ui
+                </GlassCommand.Item>
+                <GlassCommand.Item
+                  icon={<Sparkles className="w-4 h-4 text-purple-400" />}
+                  onSelect={() => {
+                    setIsModalOpen(true);
+                  }}
+                >
+                  Abrir Demonstração GlassModal
+                </GlassCommand.Item>
+              </GlassCommand.Group>
+
+              <GlassCommand.Group heading="Links Externos">
+                <GlassCommand.Item
+                  icon={<ExternalLink className="w-4 h-4" />}
+                  shortcut="↗"
+                  onSelect={() => {
+                    window.open('https://github.com/GadiegoN/glass-ui', '_blank');
+                  }}
+                >
+                  Abrir Repositório no GitHub
+                </GlassCommand.Item>
+                <GlassCommand.Item
+                  icon={<ExternalLink className="w-4 h-4" />}
+                  shortcut="↗"
+                  onSelect={() => {
+                    window.open('https://www.npmjs.com/package/@gadiegon/glass-ui', '_blank');
+                  }}
+                >
+                  Ver Pacote no Registro do NPM
+                </GlassCommand.Item>
+              </GlassCommand.Group>
+            </GlassCommand.List>
+          </GlassCommand>
         </GlassCard>
       </div>
 
