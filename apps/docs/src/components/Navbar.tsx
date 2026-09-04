@@ -8,11 +8,14 @@ import {
   GlassIconButton,
   Glass,
   GlassDivider,
-} from '@gadiegon/glass-ui';
 import { Sparkles, Layers, Layout, Sliders, Menu, X } from 'lucide-react';
+import pkg from '../../../../packages/react/package.json';
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const currentVersion = process.env.NEXT_PUBLIC_NPM_VERSION
+    ? `v${process.env.NEXT_PUBLIC_NPM_VERSION}`
+    : `v${pkg.version}`;
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
@@ -35,7 +38,7 @@ export function Navbar() {
             </span>
           </a>
           <GlassBadge variant="purple" size="sm" dot className="hidden sm:inline-flex">
-            v0.1.0
+            {currentVersion}
           </GlassBadge>
         </div>
 
@@ -75,7 +78,7 @@ export function Navbar() {
           >
             <GlassButton size="sm" variant="ghost" className="gap-1.5 font-mono text-xs text-red-300 hover:text-red-200">
               <span className="font-bold text-red-400">npm</span>
-              <span>v0.1.0</span>
+              <span>{currentVersion}</span>
             </GlassButton>
           </a>
 
@@ -170,7 +173,7 @@ export function Navbar() {
               >
                 <GlassButton size="sm" variant="secondary" className="w-full justify-center gap-2 font-mono text-xs">
                   <span className="font-bold text-red-400">npm</span>
-                  <span>v0.1.0</span>
+                  <span>{currentVersion}</span>
                 </GlassButton>
               </a>
 
